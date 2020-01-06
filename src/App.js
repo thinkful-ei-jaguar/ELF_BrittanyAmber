@@ -8,13 +8,6 @@ import slugify from 'slugify';
 
 import './App.css';
 
-// This object will allow us to
-// easily convert numbers into US dollar values
-const USCurrencyFormat = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD'
-});
-
 class App extends Component {
   state = {
     features: [{
@@ -31,7 +24,7 @@ class App extends Component {
         price: 300,
         selected: false
       }],
-      selectedId: null
+      selectedId: 9
     }, {
       id: 2,
       name: 'Operating System',
@@ -45,7 +38,8 @@ class App extends Component {
         description: 'option',
         price: 300,
         selected: false
-      }]
+      }],
+      selectedId: 11
     }, {
       id: 3,
       name: 'Video Card',
@@ -59,7 +53,8 @@ class App extends Component {
         description: 'option',
         price: 300,
         selected: false
-      }]
+      }],
+      selectedId: 13
     }, {
       id: 4,
       name: 'Display',
@@ -73,7 +68,8 @@ class App extends Component {
         description: 'option',
         price: 300,
         selected: false
-      }]
+      }],
+      selectedId: 15
     }]
   }
 

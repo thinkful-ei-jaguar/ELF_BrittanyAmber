@@ -8,6 +8,7 @@ const Main = props => {
     const total = props.features.reduce((accumulator, feature) => {
         let selected = feature.SelectedId;
         let selectedOption = feature.options.find(option => option.id === selected);
+        console.log(selectedOption);
         let price = selectedOption.price;
         return price + accumulator;
     }, 0);
