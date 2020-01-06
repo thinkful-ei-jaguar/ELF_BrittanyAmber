@@ -15,7 +15,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 
 class App extends Component {
   state = {
-    selected: {
+    features: {
       Processor: {
         name: '17th Generation Intel Core HB (7 Core with donut spare)',
         cost: 700
@@ -100,22 +100,7 @@ class App extends Component {
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
-        <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            {features}
-          </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
-          </section>
-        </main>
+        <Main options={} />
       </div>
     );
   }
