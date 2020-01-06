@@ -8,7 +8,8 @@ const Feature = props => {
                 <h3>{props.name}</h3>
             </legend>
             {props.options.map(option => {
-                return <Option option={option} updateFeature={() => props.updateFeature(props.featureIndex, option.id)} />
+                let selected = props.selectedId === option.id ? true : false;
+                return <Option selected={selected} option={option} updateFeature={() => props.updateFeature(props.featureIndex, option.id)} />
             })}
         </fieldset>
     );

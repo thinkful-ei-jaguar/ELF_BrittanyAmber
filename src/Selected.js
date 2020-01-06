@@ -9,7 +9,7 @@ const Selected = props => {
     return (
         <div className="summary__option" key={props.key}>
             <div className="summary__option__label">{props.name} </div>
-            <div className="summary__option__value">{props.selected}</div>
+            <div className="summary__option__value">{props.selected.description}</div>
             <div className="summary__option__cost">
                 {USCurrencyFormat.format(props.selected.price)}
             </div>

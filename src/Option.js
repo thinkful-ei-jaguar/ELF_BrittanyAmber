@@ -14,7 +14,7 @@ const Option = props => {
     //     price: 400,
     //     selected: false
     //   }
-    const { id, description, price, selected } = props.option;
+    const { id, description, price } = props.option;
 
     return (
         <div className="feature__item">
@@ -23,9 +23,8 @@ const Option = props => {
                 id={id}
                 className="feature__option"
                 name={description}
-                checked={selected}
-                onChange={e => {
-                    console.log(e);
+                checked={props.selected}
+                onClick={e => {
                     props.updateFeature();
                 }}
             />

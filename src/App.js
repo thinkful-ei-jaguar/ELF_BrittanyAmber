@@ -16,13 +16,11 @@ class App extends Component {
       options: [{
         id: 8,
         description: '17th Generation Intel Core HB (7 Core with donut spare)',
-        price: 400,
-        selected: false
+        price: 400
       }, {
         id: 9,
-        description: 'option',
-        price: 300,
-        selected: false
+        description: 'Professor X AMD Fire Breather with sidewinder technology',
+        price: 300
       }],
       selectedId: 9
     }, {
@@ -31,13 +29,11 @@ class App extends Component {
       options: [{
         id: 10,
         description: 'Ubuntu Linux 16.04',
-        price: 400,
-        selected: false
+        price: 400
       }, {
         id: 11,
-        description: 'option',
-        price: 300,
-        selected: false
+        description: 'Bodhi Linux',
+        price: 300
       }],
       selectedId: 11
     }, {
@@ -46,13 +42,11 @@ class App extends Component {
       options: [{
         id: 12,
         description: 'Toyota Corolla 1.5v',
-        price: 400,
-        selected: false
+        price: 400
       }, {
         id: 13,
-        description: 'option',
-        price: 300,
-        selected: false
+        description: 'Mind mild breeze 2000',
+        price: 300
       }],
       selectedId: 13
     }, {
@@ -61,24 +55,24 @@ class App extends Component {
       options: [{
         id: 14,
         description: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-        price: 400,
-        selected: false
+        price: 400
       }, {
         id: 15,
-        description: 'option',
-        price: 300,
-        selected: false
+        description: '15.3" HGTV (3840 x 2160) Home makeover edition',
+        price: 300
       }],
       selectedId: 15
     }]
-  }
+  };
 
   updateFeature = (featureIndex, optionId) => {
-    let newObj = Object.assign(this.state.features[featureIndex], { selectedId: optionId });
+    let feature = this.state.features[featureIndex];
+    let features = [...this.state.features];
+    features[featureIndex].selectedId = optionId;
     this.setState({
-      features: [...this.state.features, newObj]
+      features: features
     });
-  }
+  }; 
 
   render() {
     return (
@@ -86,7 +80,7 @@ class App extends Component {
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
-        <Main features={this.state.features} />
+        <Main features={this.state.features} updateFeature={this.updateFeature}/>
       </div>
     );
   }
