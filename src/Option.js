@@ -8,18 +8,29 @@ const Option = props => {
         currency: 'USD'
     });
 
+    // option object    // // {
+    //     id: 8,
+    //     description: '17th Generation Intel Core HB (7 Core with donut spare)',
+    //     price: 400,
+    //     selected: false
+    //   }
+    const { id, description, price, selected } = props.option;
+
     return (
-        <div key={} className="feature__item">
+        <div className="feature__item">
             <input
                 type="radio"
-                id={}
+                id={id}
                 className="feature__option"
-                name={}
-                checked={}
-                onChange={e => props.updateFeature()}
+                name={description}
+                checked={selected}
+                onChange={e => {
+                    console.log(e);
+                    props.updateFeature();
+                }}
             />
-            <label htmlFor={itemHash} className="feature__label">
-                {props.name} ({USCurrencyFormat.format(props.cost)})
+            <label htmlFor={id} className="feature__label">
+                {description} ({USCurrencyFormat.format(price)})
             </label>
         </div>
     );

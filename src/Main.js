@@ -1,25 +1,31 @@
 import React from 'react';
 
+import Feature from './Feature';
+import Selected from './Selected';
+import Total from './Total';
+
 const Main = props => {
+    const total = props.features.reduce((accumulator, feature) => {
+        let selected = feature.SelectedId;
+        let selectedOption = feature.options.find(option => option.id === selected);
+        let price = selectedOption.price;
+        return price + accumulator;
+    }, 0);
+
     return (
         <main>
             <form className="main__form">
                 <h2>Customize your laptop</h2>
-                {props.features.map(feature => {
-                    return <Feature name={props.featureName} />
+                {props.features.map((feature, featureIndex) => {
+                    return <Feature key={feature.id} id={feature.id} name={feature.name} options={feature.options} featureIndex={featureIndex} />
                 })}
             </form>
             <section className="main__summary">
                 <h2>Your cart</h2>
                 {props.features.map(feature => {
-                    <Selected />
+                    return <Selected key={feature.id} name={feature.name} selected={feature.options.find(option => option.id === feature.SelectedId)} />
                 })}
-                <div className="summary__total">
-                    <div className="summary__total__label">Total</div>
-                    <div className="summary__total__value">
-                        {USCurrencyFormat.format(total)}
-                    </div>
-                </div>
+                <Total total={total} />
             </section>
         </main>
     );
